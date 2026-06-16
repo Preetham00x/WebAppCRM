@@ -34,4 +34,10 @@ public class CustomerService implements ICustomerService {
 		return optional.get();
 	}
 
+	@Override
+	public void deleteCxRecord(Integer id) {
+		repo.deleteById(id);
+		
+	}
+
 }
