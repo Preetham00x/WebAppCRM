@@ -7,6 +7,5 @@ import com.telidu.WebbAppCRM.model.Customer;
 
 @Repository
 public interface ICustomerRepo extends CrudRepository<Customer, Integer> {
-	
 
 }

@@ -8,36 +8,46 @@ import org.springframework.stereotype.Service;
 
 import com.telidu.WebbAppCRM.model.Customer;
 import com.telidu.WebbAppCRM.repo.ICustomerRepo;
+
 @Service
 public class CustomerService implements ICustomerService {
 
+	
 	private ICustomerRepo repo;
+	
+	
 	@Autowired
-	public void setService(ICustomerRepo repo) {
+	public void setRepo(ICustomerRepo repo) {
 		this.repo = repo;
 	}
 
 	@Override
-	public List<Customer> getCustomerInfo() {
+	public List<Customer> getCustomerInfo()
+	{
 		return (List<Customer>) repo.findAll();
 	}
 
 	@Override
-	public void registerCustomer(Customer customer) {
+	public void registerCustomer(Customer customer)
+	{
 		repo.save(customer);
 
 	}
 
 	@Override
-	public Customer fetchCustomerById(Integer id) {
+	public Customer fetchCustomerById(Integer id) 
+	{
 		Optional<Customer> optional = repo.findById(id);
 		return optional.get();
+		
 	}
 
 	@Override
 	public void deleteCxRecord(Integer id) {
+		// TODO Auto-generated method stub
 		repo.deleteById(id);
-		
 	}
+
+	
 
 }
